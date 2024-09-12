@@ -22,7 +22,20 @@ interface form{
 }
 function Partnersform() {
 
-    const [formData , setData] = React.useState<form>({});
+    const [formData , setData] = React.useState<form>({
+        code: "",
+        name: "",
+        category: "",
+        address: "",
+        website: "",
+        contact: "",
+        country: "",
+        city: "",
+        type: "",
+        recognition: "",
+        status: "",
+        paidstatus: "",
+    });
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name,value} = event.target;
@@ -42,7 +55,7 @@ function Partnersform() {
     function formSubmittion(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
         console.log(formData);
-
+        // reset after submittion
         setData({
             'code': '',
             'name': '',

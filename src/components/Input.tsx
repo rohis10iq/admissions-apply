@@ -36,7 +36,7 @@ const InputBox: FC<inputProps> = ({ label, type, Value , placeholder, styling , 
 interface select{
     name:string,
     label:string,
-    options:[],
+    options:string[],
     handleSelect(event: React.ChangeEvent<HTMLSelectElement>):void;
 }
 
