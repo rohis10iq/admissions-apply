@@ -1,10 +1,9 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-import Container from "./Container"
 import Footer from "./Footer"
 import Navbar from "./Navbar"
-import InputBox from './InputBox';
+import InputBox , {Select} from './Input';
 
 interface form{
     code:string,
@@ -24,12 +23,21 @@ interface form{
 function Partnersform() {
 
     const [formData , setData] = React.useState<form>({});
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const {name,value} = event.target;
+        console.log(name + value)
         setData((prev)=>{
             return {...prev, [name]:value}
         })
     };
+
+    const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const {name,value} = event.target;
+        setData((prev)=>{
+            return {...prev, [name]:value}
+        })
+    }
 
     function formSubmittion(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
@@ -55,7 +63,7 @@ function Partnersform() {
     return (
         <>
         <Navbar />
-            <div id='header'>
+            <div id='header' className='pt-10'>
                 <div className="flex justify-between items-start px-10">
                     <div>
                         <h1 className="text-[40px] font-extrabold">Form</h1>
@@ -91,7 +99,7 @@ function Partnersform() {
 
                 <Divider orientation="vertical" variant="middle" flexItem />
 
-                <div className="max-w-[450px] sm:min-w-[450px]">
+                <div className="max-w-[450px] sm:min-w-[500px] pl-10">
                     <form onSubmit={(e)=>formSubmittion(e)}> 
                         <InputBox label='Code'  type='text' Value={formData.code} placeholder='Enter Code of Your Institute'  name='code' handleChange={handleChange}/>
 
@@ -109,14 +117,14 @@ function Partnersform() {
                         
                         <InputBox label='City' type='text' Value={formData.city} placeholder='Enter City where institution is located' name='city' handleChange={handleChange}/>
                         
-                        <InputBox label='Type' type='text' Value={formData.type} placeholder='Choose type of institution' name='type' handleChange={handleChange}/>
-                        
-                        <InputBox label='Recognition' type='text' Value={formData.recognition} placeholder='Institution is Recognized' name='recognition' handleChange={handleChange}/>
-                        
-                        <InputBox label='Status' type='text' Value={formData.status} placeholder='Enter' name='status' handleChange={handleChange}/>   
-                        
-                        <InputBox label='Paid Status' type='text' Value={formData.paidstatus} placeholder='Enter' name='paidstatus' handleChange={handleChange}/>   
-                        
+                        <Select name='type' label='Select Institution Type' options={['public','private']} handleSelect={handleSelect}/>
+
+                        <Select name='recognition' label='Is Your insititure Recognized' options={['Yes','No']} handleSelect={handleSelect}/>
+
+                        <Select name='status' label='Status' options={['Active','Non-Active']} handleSelect={handleSelect}/>
+
+                        <Select name='paidstatus' label='Paid Status' options={['Paid','Free']} handleSelect={handleSelect}/>
+                                                                        
                         <Button variant="contained" type='submit'>Save</Button>
                     </form>
                 </div>
