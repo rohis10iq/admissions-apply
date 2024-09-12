@@ -24,6 +24,7 @@ const InputBox: FC<inputProps> = ({ label, type, Value , placeholder, styling , 
                         className={`px-4 py-3 w-full outline-none border-2 border-secondary bg-transparent shadow-sm rounded-lg placeholder:text-sm ${styling}`}
                         placeholder={placeholder}
                         onChange={handleChange}
+                        required
                     />
                 </div>
             </div>

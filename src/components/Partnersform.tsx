@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 import Container from "./Container"
 import Footer from "./Footer"
 import Navbar from "./Navbar"
@@ -54,7 +55,7 @@ function Partnersform() {
     return (
         <>
         <Navbar />
-            <div>
+            <div id='header'>
                 <div className="flex justify-between items-start px-10">
                     <div>
                         <h1 className="text-[40px] font-extrabold">Form</h1>
@@ -68,15 +69,30 @@ function Partnersform() {
                     <button className='py-2 border-b-2 border-b-secondary outline-none'>Add your program</button>
                     <p>Personalize your dashboard</p>
                     <div id='tab-buttons' className='flex'>
-                        <button className='px-4 py-2 bg-secondary text-black'>Institute Profile</button>
+                        <button className='px-4 py-2 bg-white text-black rounded-sm'>Institute Profile</button>
                         <button className='px-4 py-2 '>About the institute</button>
                         <button className='px-4 py-2 '>Student statistics</button>
                     </div>
                 </div>
             </div>
-            <Container>
-                <div className="max-w-[450px] space-y-3">
-                   <form onSubmit={(e)=>formSubmittion(e)}> 
+
+            <div className='flex gap-5 p-10'>
+                <aside className='p-5 flex flex-col items-start mx-w-[250px] h-full'>
+                    <Button variant='text' color="success">Institute Profile</Button>
+                    <Button variant="text" color="secondary" >Add Hostel & Room Detail</Button>
+                    <Button variant="text" color="secondary">Page Header</Button>
+                    <Button variant="text" color="secondary">Legal Section </Button>
+                    <Button variant="text" color="secondary">Statistics</Button>
+                    <Button variant="text" color="secondary">Add Department</Button>
+                    <Button variant="text" color="secondary">Add Courses</Button>
+                    <Button variant="text" color="secondary">Course Elegibility</Button>
+                    <Button variant="text" color="secondary">Fee and Payment</Button>
+                </aside>
+
+                <Divider orientation="vertical" variant="middle" flexItem />
+
+                <div className="max-w-[450px] sm:min-w-[450px]">
+                    <form onSubmit={(e)=>formSubmittion(e)}> 
                         <InputBox label='Code'  type='text' Value={formData.code} placeholder='Enter Code of Your Institute'  name='code' handleChange={handleChange}/>
 
                         <InputBox label='Name of institute' type='text' Value={formData.name} placeholder='Enter Name of Your Institute' name='name' handleChange={handleChange}/>
@@ -104,7 +120,8 @@ function Partnersform() {
                         <Button variant="contained" type='submit'>Save</Button>
                     </form>
                 </div>
-            </Container>
+            </div>
+            
         <Footer />
         </>
     )
