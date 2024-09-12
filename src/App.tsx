@@ -11,6 +11,7 @@ const Partners = lazy(() => import("./components/Partners"));
 const App = () => {
   return (
     <>
+    <div className="bg-[#E2E2E2]">
       <Suspense fallback={<div>Loading...</div>}>
         <Navbar />
       </Suspense>
@@ -32,6 +33,7 @@ const App = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <Footer />
       </Suspense>
+      </div>
     </>
   );
 };

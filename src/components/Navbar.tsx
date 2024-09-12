@@ -42,7 +42,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="fixed" color="secondary">
+    <AppBar position="sticky" color="secondary">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img src={Logo} alt={"logo"} className="w-[35px] h-[35px]" />
