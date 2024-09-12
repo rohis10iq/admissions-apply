@@ -21,7 +21,7 @@ interface form{
 
 }
 function Partnersform() {
-
+    const [error,setError] = React.useState<string>('')
     const [formData , setData] = React.useState<form>({
         code: "",
         name: "",
@@ -47,6 +47,7 @@ function Partnersform() {
 
     const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const {name,value} = event.target;
+        setError('');
         setData((prev)=>{
             return {...prev, [name]:value}
         })
@@ -54,6 +55,12 @@ function Partnersform() {
 
     function formSubmittion(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
+
+        if(formData.type == '' || formData.paidstatus == '' || formData.recognition == '' || formData.status == '')
+        {
+            setError('Please Select option')
+        }
+
         console.log(formData);
         // reset after submittion
         setData({
@@ -131,12 +138,16 @@ function Partnersform() {
                         <InputBox label='City' type='text' Value={formData.city} placeholder='Enter City where institution is located' name='city' handleChange={handleChange}/>
                         
                         <Select name='type' label='Select Institution Type' options={['public','private']} handleSelect={handleSelect}/>
+                        <p className='text-red-600 text-sm'>{error}</p>
 
                         <Select name='recognition' label='Is Your insititure Recognized' options={['Yes','No']} handleSelect={handleSelect}/>
+                        <p className='text-red-600 text-sm'>{error}</p>
 
                         <Select name='status' label='Status' options={['Active','Non-Active']} handleSelect={handleSelect}/>
+                        <p className='text-red-600 text-sm'>{error}</p>
 
                         <Select name='paidstatus' label='Paid Status' options={['Paid','Free']} handleSelect={handleSelect}/>
+                        <p className='text-red-600 text-sm'>{error}</p>
                                                                         
                         <Button variant="contained" type='submit'>Save</Button>
                     </form>
