@@ -50,7 +50,7 @@ export const Select:FC<select> =  ({name,label,options = [],handleSelect}) =>{
             <select name={name} className='px-4 py-2 w-full outline-none border-2 border-secondary bg-transparent shadow-sm rounded-lg placeholder:text-sm font-light' 
                 onChange={handleSelect}
             >
-                <option selected></option>
+                <option selected hidden>Select</option>
                  {
                     options.map((option)=>{
                         return( 
@@ -63,6 +63,4 @@ export const Select:FC<select> =  ({name,label,options = [],handleSelect}) =>{
         </>
     )
 }
-
-
 export default InputBox
