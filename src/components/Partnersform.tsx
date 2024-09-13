@@ -18,10 +18,16 @@ interface form{
     recognition:string,
     status:string,
     paidstatus:string
-
 }
 function Partnersform() {
+
+    React.useEffect(() => { 
+        window.scrollTo({ top: 0 });
+        
+    }, []);
+
     const [error,setError] = React.useState<string>('')
+    
     const [formData , setData] = React.useState<form>({
         code: "",
         name: "",
@@ -58,7 +64,8 @@ function Partnersform() {
 
         if(formData.type == '' || formData.paidstatus == '' || formData.recognition == '' || formData.status == '')
         {
-            setError('Please Select option')
+            setError('Oops You missed some inputs')
+            return;
         }
 
         console.log(formData);
@@ -138,22 +145,19 @@ function Partnersform() {
                         <InputBox label='City' type='text' Value={formData.city} placeholder='Enter City where institution is located' name='city' handleChange={handleChange}/>
                         
                         <Select name='type' label='Select Institution Type' options={['public','private']} handleSelect={handleSelect}/>
-                        <p className='text-red-600 text-sm'>{error}</p>
 
                         <Select name='recognition' label='Is Your insititure Recognized' options={['Yes','No']} handleSelect={handleSelect}/>
-                        <p className='text-red-600 text-sm'>{error}</p>
 
                         <Select name='status' label='Status' options={['Active','Non-Active']} handleSelect={handleSelect}/>
-                        <p className='text-red-600 text-sm'>{error}</p>
 
                         <Select name='paidstatus' label='Paid Status' options={['Paid','Free']} handleSelect={handleSelect}/>
-                        <p className='text-red-600 text-sm'>{error}</p>
                                                                         
                         <Button variant="contained" type='submit'>Save</Button>
+
+                        <p className='text-red-600 text-sm'>{error}</p>
                     </form>
                 </div>
             </div>
-            
         <Footer />
         </>
     )
