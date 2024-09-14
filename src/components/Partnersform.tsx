@@ -111,8 +111,8 @@ function Partnersform() {
                 </div>
             </div>
 
-            <div className='flex gap-5 p-10'>
-                <aside className='p-5 flex flex-col items-start mx-w-[250px] h-full'>
+            <div className='md:flex gap-5 p-10 overflow-clip'>
+                <aside className='p-5 flex md:flex-col items-start mx-w-[250px] h-full overflow-x-scroll md:overflow-hidden'>
                     <Button variant='text' color="success">Institute Profile</Button>
                     <Button variant="text" color="secondary" >Add Hostel & Room Detail</Button>
                     <Button variant="text" color="secondary">Page Header</Button>
@@ -126,7 +126,7 @@ function Partnersform() {
 
                 <Divider orientation="vertical" variant="middle" flexItem />
 
-                <div className="max-w-[450px] sm:min-w-[500px] pl-10">
+                <div className="w-[90%] sm:max-w-[450px] sm:min-w-[500px] pl-10">
                     <form onSubmit={(e)=>formSubmittion(e)}> 
                         <InputBox label='Code'  type='text' Value={formData.code} placeholder='Enter Code of Your Institute'  name='code' handleChange={handleChange}/>
 
