@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PartnerBanner from "../assets/Group 31.png";
 import institutions from "../assets/institutions.png";
 import jobandinternship from "../assets/job and internship.png";
@@ -29,7 +30,9 @@ const Partners = () => {
             <span className="font-bold text-[#2EC89C] mr-2">Our</span>
             Partners
           </h3>
-          <img src={PartnerBanner} alt="PartnerBanner" />
+          <Link to='/partner/new-partnership'>
+            <img src={PartnerBanner} alt="PartnerBanner" />
+          </Link>
         </div>
         <div className="flex flex-wrap flex-col lg:flex-row mx-auto gap-5 mt-7">
           {partnerData.map((obj) => (

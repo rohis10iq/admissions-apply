@@ -1,4 +1,4 @@
-import Container from "./Container";
+import Container from "../components/Container";
 import banner from "../assets/Rectangle 11.png";
 import { Button } from "@mui/material";
 import logo from "../assets/Web  1.png";

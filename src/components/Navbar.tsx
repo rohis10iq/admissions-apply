@@ -12,6 +12,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Logo from "../assets/logo.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Search } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 const pages = [
   "Home",
   "Undergraduate",
@@ -42,10 +43,12 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="fixed" color="secondary">
+    <AppBar position="sticky" color="secondary">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img src={Logo} alt={"logo"} className="w-[35px] h-[35px]" />
+          <Link to='/'>
+            <img src={Logo} alt={"logo"} className="w-[35px] h-[35px]" />
+          </Link>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "auto" } }}>
             <Menu
               id="menu-appbar"

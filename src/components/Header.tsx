@@ -1,9 +1,9 @@
-import HeaderSearch from "./HeaderSearch";
+import HeaderSearch from "../components/HeaderSearch";
 import CourseExploration from "../assets/Course Exploration.png";
 import addOne from "../assets/banner1.png";
 import addTwo from "../assets/Screenshot_1.png";
-import NavigationTile from "./NavigationTile";
-import Container from "./Container";
+import NavigationTile from "../components/NavigationTile";
+import Container from "../components/Container";
 const Header = () => {
   const tilesData = [
     {
