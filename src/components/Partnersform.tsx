@@ -112,7 +112,7 @@ function Partnersform() {
             </div>
 
             <div className='md:flex gap-5 p-10 overflow-clip'>
-                <aside className='p-5 flex md:flex-col items-start mx-w-[250px] h-full overflow-x-scroll md:overflow-hidden'>
+                <aside className='p-5 flex md:flex-col flex-wrap items-start mx-w-[250px] h-full overflow-hidden'>
                     <Button variant='text' color="success">Institute Profile</Button>
                     <Button variant="text" color="secondary" >Add Hostel & Room Detail</Button>
                     <Button variant="text" color="secondary">Page Header</Button>
@@ -144,13 +144,13 @@ function Partnersform() {
                         
                         <InputBox label='City' type='text' Value={formData.city} placeholder='Enter City where institution is located' name='city' handleChange={handleChange}/>
                         
-                        <Select name='type' label='Select Institution Type' options={['public','private']} handleSelect={handleSelect}/>
+                        <Select name='type' value={formData.type}  label='Select Institution Type' options={['public','private']} handleSelect={handleSelect}/>
 
-                        <Select name='recognition' label='Is Your insititure Recognized' options={['Yes','No']} handleSelect={handleSelect}/>
+                        <Select name='recognition'value={formData.recognition}  label='Is Your insititure Recognized' options={['Yes','No']} handleSelect={handleSelect}/>
 
-                        <Select name='status' label='Status' options={['Active','Non-Active']} handleSelect={handleSelect}/>
+                        <Select name='status' value={formData.status} label='Status' options={['Active','Non-Active']} handleSelect={handleSelect}/>
 
-                        <Select name='paidstatus' label='Paid Status' options={['Paid','Free']} handleSelect={handleSelect}/>
+                        <Select name='paidstatus' value={formData.paidstatus} label='Paid Status' options={['Paid','Free']} handleSelect={handleSelect}/>
                                                                         
                         <Button variant="contained" type='submit'>Save</Button>
 
