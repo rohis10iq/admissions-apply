@@ -25,6 +25,7 @@ const InputBox: FC<inputProps> = ({ label, type, Value , placeholder, styling , 
                         placeholder={placeholder}
                         onChange={handleChange}
                         required
+                        autoComplete='off'
                     />
                 </div>
             </div>
