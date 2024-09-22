@@ -35,14 +35,21 @@ const SignUp:React.FC = () => {
     setError('');
   }
 
-  const handleSubmit = () => {
+  const handleEmail = () => {
     // API call to login
     if (!userData.email) {
       setError('Enter email address');
       return;
     }
-    alert('verifying email');
+    alert("verifying email");
     setVerification(true); // after email verification completion
+  }
+
+  const handleUserDetails = () => {
+    // API call to register
+    console.log(userData);
+    alert("user registered");
+    return;
 
   }
   return (
@@ -67,7 +74,7 @@ const SignUp:React.FC = () => {
                   <Button
                     variant="contained"
                     className="h-12 w-full text-2xl bg-primary text-white hover:bg-green-600"
-                    onClick={handleSubmit} // Handle submit
+                    onClick={handleEmail} // Handle submit
                   >
                     Continue
                   </Button>
@@ -134,7 +141,7 @@ const SignUp:React.FC = () => {
                   <Button
                     variant="contained"
                     className="h-12 w-full text-2xl bg-primary text-white hover:bg-green-600"
-                    onClick={handleSubmit} // Handle submit
+                    onClick={handleUserDetails} // Handle submit
                   >
                     Continue
                   </Button>
