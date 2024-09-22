@@ -15,7 +15,7 @@ const SignUp:React.FC = () => {
     password: string;
     rePassword:string;
   }
-
+  
   const [userData, setData] = React.useState<userData>({
     firstName: "",
     lastName: "",
@@ -41,15 +41,9 @@ const SignUp:React.FC = () => {
       setError('Enter email address');
       return;
     }
-    
-    if (!isVerified) {
-      // check database for already existance , if not existed send verificatin email
-      setVerification(true); //on verfication completion
-      alert('email verified, kindly add further details');
-    } else {
-      setError('Email Already Existed');
-      return;
-    }
+    alert('verifying email');
+    setVerification(true); // after email verification completion
+
   }
   return (
     <>
