@@ -1,7 +1,8 @@
 import { createBrowserRouter  } from "react-router-dom";
 import App from "./App";
 import Partnersform from "./components/Partnersform";
-
+import Login from './components/auth/Login'
+import SignUp from './components/auth/SignUp'
 export const Router = createBrowserRouter([
   {
     path: "/",
@@ -15,5 +16,13 @@ export const Router = createBrowserRouter([
         element:<Partnersform/>
       },
     ]
+  },
+  {
+    path: "/login",
+    element: <Login/>,
+  },
+  {
+    path: "sign-up",
+    element:<SignUp/>
   }
 ]);

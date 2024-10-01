@@ -104,6 +104,7 @@ function Navbar() {
                 <Search />
               </div>
             </Button>
+          <Link to="/login">
             <IconButton>
               <Typography sx={{ mr: 1 }}>sign in</Typography>
 
@@ -136,7 +137,9 @@ function Navbar() {
                   stroke-linejoin="round"
                 />
               </svg>
+              
             </IconButton>
+            </Link>
           </Box>
           <Box sx={{ flexGrow: 0, display: { sm: "block", lg: "none" } }}>
             <Tooltip title="Open settings">
