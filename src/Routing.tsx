@@ -3,10 +3,11 @@ import App from "./App";
 import Partnersform from "./components/Partnersform";
 import Login from './components/auth/Login'
 import SignUp from './components/auth/SignUp'
+import Course2 from "./components/Course2";
 export const Router = createBrowserRouter([
   {
     path: "/",
-    element: <App />, //represents global layout for overall application
+    element: <App />,
   },
   {
     path:"/partner", // new route group for partners (forms , dashboard , etc)
@@ -24,5 +25,9 @@ export const Router = createBrowserRouter([
   {
     path: "sign-up",
     element:<SignUp/>
+  },
+  {
+    path:"course2",
+    element:<Course2/>
   }
 ]);
