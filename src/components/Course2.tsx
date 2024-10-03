@@ -96,7 +96,7 @@ const Course2: React.FC = () => {
                         <Box className="flex items-center space-x-2">
 
                             <Button sx={{ color: '#00FFB6' }}
-                                className=' text-[12px]'
+                                className=' text-[12px]/'
                                 startIcon={<SortOutlined />}
                             >
                                 List
@@ -129,7 +129,12 @@ const Course2: React.FC = () => {
                         size='small'
                         className="bg-transparent border-2 border-white"
                         defaultValue="Course"
-                        sx={{ borderRadius: '50px', color: 'white' }}
+                        sx={{
+                            borderRadius: '50px', color: 'white',
+                            '& .MuiSelect-icon': {
+                                color: 'white',  // Change the dropdown arrow color
+                            },
+                        }}
                     >
                         <MenuItem value="Course">Course</MenuItem>
                         <MenuItem value="Another">Another course</MenuItem>
@@ -139,7 +144,12 @@ const Course2: React.FC = () => {
                         size='small'
                         className="bg-transparent border-2 border-white"
                         defaultValue="Session"
-                        sx={{ borderRadius: '50px', color: 'white' }}
+                        sx={{
+                            borderRadius: '50px', color: 'white',
+                            '& .MuiSelect-icon': {
+                                color: 'white',  // Change the dropdown arrow color
+                            },
+                        }}
                     >
                         <MenuItem value="Session">Session</MenuItem>
                         <MenuItem value="AnotherSession">Another Session</MenuItem>
@@ -149,7 +159,12 @@ const Course2: React.FC = () => {
                         size='small'
                         className="bg-transparent border-2 border-white"
                         defaultValue="Country"
-                        sx={{ borderRadius: '50px', color: 'white' }}
+                        sx={{
+                            borderRadius: '50px', color: 'white',
+                            '& .MuiSelect-icon': {
+                                color: 'white',  // Change the dropdown arrow color
+                            },
+                        }}
                     >
                         <MenuItem value="Country">Country</MenuItem>
                         <MenuItem value="AnotherCountry">Another Country</MenuItem>
@@ -159,7 +174,12 @@ const Course2: React.FC = () => {
                         size='small'
                         className="bg-transparent border-2 border-white"
                         defaultValue="City"
-                        sx={{ borderRadius: '50px', color: 'white' }}
+                        sx={{
+                            borderRadius: '50px', color: 'white',
+                            '& .MuiSelect-icon': {
+                                color: 'white',  // Change the dropdown arrow color
+                            },
+                        }}
                     >
                         <MenuItem value="City">City</MenuItem>
                         <MenuItem value="AnotherCity">Another City</MenuItem>
@@ -169,7 +189,12 @@ const Course2: React.FC = () => {
                         size='small'
                         className="bg-transparent border-2 border-white"
                         defaultValue="Institute"
-                        sx={{ borderRadius: '50px', color: 'white' }}
+                        sx={{
+                            borderRadius: '50px', color: 'white',
+                            '& .MuiSelect-icon': {
+                                color: 'white',  // Change the dropdown arrow color
+                            },
+                        }}
 
                     >
                         <MenuItem value="Institute">Institute</MenuItem>
@@ -317,7 +342,7 @@ const Course2: React.FC = () => {
                             '& .Mui-selected': {
                                 backgroundColor: 'transparent',  // Selected page color
                                 color: 'white',
-                                border:'1px solid #00FFB6'
+                                border: '1px solid #00FFB6'
                             },
                             '& .MuiPaginationItem-previousNext': {
                                 color: 'white',  // Color for previous/next arrows
