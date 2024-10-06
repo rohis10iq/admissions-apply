@@ -4,6 +4,7 @@ import Partnersform from "./components/Partnersform";
 import Login from './components/auth/Login'
 import SignUp from './components/auth/SignUp'
 import Course2 from "./components/Course2";
+import UniCollegeSchool from "./components/UniCollegeSchool";
 export const Router = createBrowserRouter([
   {
     path: "/",
@@ -23,11 +24,15 @@ export const Router = createBrowserRouter([
     element: <Login/>,
   },
   {
-    path: "sign-up",
+    path: "/sign-up",
     element:<SignUp/>
   },
   {
-    path:"course2",
+    path:"/course2",
     element:<Course2/>
-  }
+  },
+  {
+    path:"/institutions",
+    element:<UniCollegeSchool/>
+  },
 ]);
