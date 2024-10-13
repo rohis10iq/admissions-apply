@@ -24,7 +24,7 @@ const Header = () => {
     },
   ];
   return (
-    <header className="bg-header-pattern  min-h-screen flex flex-col items-center pt-[130px] bg-no-repeat" style={{backgroundSize:"100%"}}>
+    <header className="bg-header-pattern bg-capture  min-h-screen flex flex-col items-center pt-[130px] bg-no-repeat" style={{backgroundSize:"100%"}}>
       <h1 className="text-white text-[55px] text-center mb-2">
         Connecting People to Education
       </h1>

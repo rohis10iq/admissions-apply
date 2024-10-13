@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.bg-capture{
+    background-image: url(./assets/Captureccc\ 1.png);
+}
