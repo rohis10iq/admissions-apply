@@ -29,8 +29,8 @@ function PartnersForm() {
         phonecode: "",
         isoCode: "",
     }) 
-
     const [Cities, setCities] = React.useState<string[] | undefined>(["Select your country first"]);
+    const [callingCode,setCallingCode] = React.useState<string>();
     const [error, setError] = React.useState<string>('');
     const [success, setSuccess] = React.useState<string>('');
 
@@ -135,8 +135,10 @@ function PartnersForm() {
             const cities = City.getCitiesOfCountry('PK')?.map((city) => city.name);
             SetCountryDetails(countryDetail);
             setCities(cities)
+            setCallingCode('+' + countryDetail.phonecode)
         } else if (value != "Pakistan") {
             setCities(["Cities for this country coming soon"]);
+            setCallingCode('');
         }
     };
 
@@ -174,7 +176,7 @@ function PartnersForm() {
                         <InputBox label='Address' type='text' value={formData.address} placeholder='Enter Physical address of institution' name='address' handleChange={handleChange} />
                         <InputBox label='Website' type='text' value={formData.website} placeholder='Enter website URL' name='website' handleChange={handleChange} />
                         <Select label='Country' options={CoutriesNames} value={formData.country} name='country' handleSelect={handleSelect} />
-                        <InputBox label='Contact' type='text' value={formData.contact} placeholder='Enter contact number' name='contact' handleChange={handleChange} countryCode={CountryDetails.isoCode == "PK" ? '+92-' : ''} maxDigits={10} />
+                        <InputBox label='Contact' type='text' value={formData.contact} placeholder='Enter contact number' name='contact' handleChange={handleChange} countryCode={callingCode} maxDigits={10} />
                         <Select label='City' options={Cities} name='city' value={formData.city} handleSelect={handleSelect} />
                         <Select name='type' value={formData.type} label='Select Institution Type' options={['public', 'private']} handleSelect={handleSelect} />
                         <Select name='recognition' value={formData.recognition} label='Is Your Institute Recognized' options={['Yes', 'No']} handleSelect={handleSelect} />

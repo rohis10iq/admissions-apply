@@ -31,13 +31,13 @@ const InputBox: FC<InputProps> = ({ label, type, value, placeholder, styling, na
             </label>
             <div className="px-4 py-2 relative flex items-center border-2 border-secondary shadow-sm rounded-lg">
                 {countryCode && (
-                    <span className="mr-1 text-gray-600">{countryCode}</span>
+                    <span className="mr-2 pr-2 border-r-2 border-secondary text-gray-600">{countryCode}</span>
                 )}
                 <input
                     type={type}
                     name={name}
                     value={value}
-                    className={`w-full outline-none border-none bg-transparent placeholder:text-sm ${styling}`}
+                    className={` w-full outline-none border-none bg-transparent placeholder:text-sm ${styling}`}
                     placeholder={placeholder}
                     onChange={countryCode ? handlePhoneChange : handleChange}
                     required
