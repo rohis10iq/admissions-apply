@@ -7,8 +7,8 @@ import InputBox, { Select } from './Input';
 
 // Define the formData structure using TypeScript interface
 interface FormData {
-    code: string;
     name: string;
+    email:string;
     category: string;
     address: string;    
     website: string;
@@ -17,8 +17,6 @@ interface FormData {
     city: string;
     type: string;
     recognition: string;
-    status: string;
-    paidstatus: string;
 }
 
 function PartnersForm() {
@@ -50,8 +48,8 @@ function PartnersForm() {
 
     // Initialize form data and error state
     const [formData, setData] = React.useState<FormData>({
-        code: '',
         name: '',
+        email:'',
         category: '',
         address: '',
         website: '',
@@ -60,8 +58,6 @@ function PartnersForm() {
         city: '',
         type: '',
         recognition: '',
-        status: '',
-        paidstatus: '',
     });
 
     // Handle form submission to Firebase and LocalStorage
@@ -86,8 +82,8 @@ function PartnersForm() {
             if (response.ok) {
                 // Reset form after successful submission
                 setData({
-                    code: '',
                     name: '',
+                    email:'',
                     category: '',
                     address: '',
                     website: '',
@@ -96,8 +92,6 @@ function PartnersForm() {
                     city: '',
                     type: '',
                     recognition: '',
-                    status: '',
-                    paidstatus: '',
                 });
                 setError('');
                 setSuccess('Partner added successfully.');
@@ -136,7 +130,8 @@ function PartnersForm() {
             });
             setCities(cities)
             setCallingCode('+' + countryDetail.phonecode)
-        } else if (name == 'country') {
+        } 
+        else if (name == 'country') {
             setCities(()=>{
                 return [];
             });
@@ -162,7 +157,7 @@ function PartnersForm() {
                     </div>
                 </div>
                 <div className='w-full bg-primary flex flex-col justify-start items-start gap-4 px-10 py-5 text-white'>
-                    <button className='py-2 border-b-2 border-b-secondary outline-none'>Add your program</button>
+                    <button className='py-2 border-b-2 border-b-secondary outline-none'>Become Our Partner</button>
                 </div>
             </div>
 
@@ -173,6 +168,7 @@ function PartnersForm() {
                 <div className="w-[90%] sm:max-w-[800px] pl-10">
                     <form onSubmit={formSubmission}>
                         <InputBox label='Name of institute' type='text' value={formData.name} placeholder='Enter Name of Your Institute' name='name' handleChange={handleChange} />
+                        <InputBox label='Email Address' type='email' value={formData.email} placeholder='Enter Email of Your Institute' name='email' handleChange={handleChange} />
                         <Select label='Institute Category' options={categories} value={formData.category} name='category' handleSelect={handleSelect} />
                         <InputBox label='Address' type='text' value={formData.address} placeholder='Enter Physical address of institution' name='address' handleChange={handleChange} />
                         <InputBox label='Website' type='text' value={formData.website} placeholder='Enter website URL' name='website' handleChange={handleChange} />

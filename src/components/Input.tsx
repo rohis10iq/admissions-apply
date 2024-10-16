@@ -42,6 +42,7 @@ const InputBox: FC<InputProps> = ({ label, type, value, placeholder, styling, na
                     onChange={countryCode ? handlePhoneChange : handleChange}
                     required
                     autoComplete='off'
+                    inputMode={name=="contact"?"numeric":'text'}
                 />
             </div>
         </div>
