@@ -67,7 +67,6 @@ function PartnersForm() {
     // Handle form submission to Firebase and LocalStorage
     const formSubmission = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
         console.log("Form", formData)
         if (formData.type === '' || formData.recognition === '' || formData.category === '') {
             setError('Oops! You missed some inputs.');
@@ -114,10 +113,9 @@ function PartnersForm() {
 
     // Handle input changes for text fields
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-
         const { name, value } = event.target;
         if (name == "contact") {
-            const newValue = event.target.value.replace(/\D/g, '');
+            const newValue = event.target.value.replace(/\D/g, '');// prevent/replace alphabets in contact input
             setData(prev => ({ ...prev, [name]: newValue }));
             return;
         }
@@ -136,7 +134,7 @@ function PartnersForm() {
             SetCountryDetails(countryDetail);
             setCities(cities)
             setCallingCode('+' + countryDetail.phonecode)
-        } else if (value != "Pakistan") {
+        } else if (name == 'country' && value != "Pakistan") {
             setCities(["Cities for this country coming soon"]);
             setCallingCode('');
         }
