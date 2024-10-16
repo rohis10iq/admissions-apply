@@ -10,7 +10,7 @@ interface FormData {
     code: string;
     name: string;
     category: string;
-    address: string;
+    address: string;    
     website: string;
     contact: string;
     country: string;
@@ -29,7 +29,7 @@ function PartnersForm() {
         phonecode: "",
         isoCode: "",
     }) 
-    const [Cities, setCities] = React.useState<string[] | undefined>(["Select your country first"]);
+    const [Cities, setCities] = React.useState<string[] | undefined>([]);
     const [callingCode,setCallingCode] = React.useState<string>();
     const [error, setError] = React.useState<string>('');
     const [success, setSuccess] = React.useState<string>('');
@@ -45,7 +45,7 @@ function PartnersForm() {
         "Research Center",
         "Training Center",
         "Online Platform",
-        "Vocational Institution"
+        "Vocational Institution"
     ])
 
     // Initialize form data and error state
@@ -131,15 +131,18 @@ function PartnersForm() {
         if (name == 'country' && value == "Pakistan") { // get country and cities details
             const countryDetail = Country.getAllCountries().filter((country) => country.name == value)[0];
             const cities = City.getCitiesOfCountry('PK')?.map((city) => city.name);
-            SetCountryDetails(countryDetail);
+            SetCountryDetails((countryDetail)=>{
+                return countryDetail
+            });
             setCities(cities)
             setCallingCode('+' + countryDetail.phonecode)
-        } else if (name == 'country' && value != "Pakistan") {
-            setCities(["Cities for this country coming soon"]);
+        } else if (name == 'country') {
+            setCities(()=>{
+                return [];
+            });
             setCallingCode('');
         }
     };
-
 
 
     React.useEffect(() => {
@@ -175,7 +178,7 @@ function PartnersForm() {
                         <InputBox label='Website' type='text' value={formData.website} placeholder='Enter website URL' name='website' handleChange={handleChange} />
                         <Select label='Country' options={CoutriesNames} value={formData.country} name='country' handleSelect={handleSelect} />
                         <InputBox label='Contact' type='text' value={formData.contact} placeholder='Enter contact number' name='contact' handleChange={handleChange} countryCode={callingCode} maxDigits={10} />
-                        <Select label='City' options={Cities} name='city' value={formData.city} handleSelect={handleSelect} />
+                        <Select label='City' options={Cities} name='city' value={formData.city} handleSelect={handleSelect} placeholder={formData.country?formData.country=="Pakistan"?'':'Cities for your country will be added soon':'Select country first'}/>
                         <Select name='type' value={formData.type} label='Select Institution Type' options={['public', 'private']} handleSelect={handleSelect} />
                         <Select name='recognition' value={formData.recognition} label='Is Your Institute Recognized' options={['Yes', 'No']} handleSelect={handleSelect} />
 

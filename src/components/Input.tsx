@@ -54,10 +54,11 @@ interface select{
     value:string,
     label:string,
     options:string[] | undefined,
+    placeholder?:string,
     handleSelect(event: React.ChangeEvent<HTMLSelectElement>):void;
 }
 
-export const Select:FC<select> =  ({name,value,label,options = [],handleSelect}) =>{
+export const Select:FC<select> =  ({name,value,label,options = [],handleSelect ,placeholder}) =>{
     return(
         <>
         <div className='my-4'>
@@ -68,7 +69,7 @@ export const Select:FC<select> =  ({name,value,label,options = [],handleSelect})
                 onChange={handleSelect}
                 value={value}
             >
-                <option selected hidden>Select</option>
+                <option selected hidden>{placeholder?placeholder:'Select'}</option>
                  {
 
                     options.map((option)=>{
